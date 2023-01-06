@@ -1,4 +1,4 @@
-This guide provides a basic implementation of Binary Classification Model using PyTorch. Before writing any python script we need to setup a conda Environment and instal all necessary libraries we need.
+This guide provides a basic implementation of Binary Text Classification Model using PyTorch. Before writing any python script we need to setup a conda Environment and instal all necessary libraries we need.
 
 # Setting Up Enviroment
 
@@ -47,7 +47,9 @@ conda install -c huggingface transformers
 
 # The Python Script
  
- Note that i am using BERT-12 Layer algorithm for classification but you can try with any algorithm you want.
+ Note that i am using BERT-12 Layer algorithm for classification but you can try with any algorithm you want. We have two scripts: a train script and a test script. In the train script, the model is trained using the traindataset, and in the test script, the trained model is loaded and a test dataset is provided for value prediction.
+ 
+ # Training
  
  ```python
  
@@ -78,20 +80,8 @@ from torch.utils.data import TensorDataset, random_split
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 
 #Loading the data
-RD=pd.read_csv("/home/rohith/pythonfiles/FullRNC.csv")
-DD=pd.read_csv("/home/rohith/pythonfiles/FullDNC.csv")
-MD=pd.read_csv("/home/rohith/pythonfiles/Disdata.csv")
-D1=RD.iloc[:,8:9]
-D1["Y"]="Original"
-D1=D1.head(48000)
-D2=DD.iloc[:,8:9]
-D2["Y"]="Original"
-D2=D2.head(48000)
-D3=MD.iloc[:,8:9]
-D3["Y"]="Fake"
-D3=D3.head(96000)
-frames=[D1, D2, D3]
-Data=pd.concat(frames)
+Data=pd.read_csv("Give path to the csv train dataset file you downloaded")
+Data=Data.iloc[:,1:](Keeping only text and label columns)
 Data
 
 #Checking and removing null values
@@ -146,8 +136,8 @@ Data.Y[Data.Y == 'Fake'] = 1
 TrainData=Data.iloc[:,1:]
 
 # Get the lists of sentences and their labels.
-sentences = traindata2.clean_text.values
-labels = traindata2.Y.values
+sentences = Traindata.clean_text.values
+labels = Traindata.Y.values
 labels = np.asarray(labels).astype(np.float32)
 
 #Importing the Bert Tokenizer
@@ -220,7 +210,6 @@ validation_dataloader = DataLoader(
         )
         
 #Network
-
 class BertClassifier(nn.Module):
 
     def __init__(self, dropout=0.1):
@@ -241,15 +230,104 @@ class BertClassifier(nn.Module):
 
         return final_layer
         
+#training method
 
+def train(model, train_data, val_data, learning_rate, epochs, train_size, val_size):
+
+    trainlen=train_size
+    vallen=val_size
+
+    use_cuda = torch.cuda.is_available()
+    device = torch.device("cuda" if use_cuda else "cpu")
+
+    criterion = nn.BCELoss()
+    optimizer = Adam(model.parameters(), lr= learning_rate)
+
+    for_print = 0
+
+###############################################
+## Only if you are using gpu
+    if use_cuda:
+
+            model = model.cuda()
+            criterion = criterion.cuda()
+###############################################            
+
+    for epoch_num in range(epochs):
+
+            total_acc_train = 0
+            total_loss_train = 0
+            model.train()
+
+            for batch in tqdm(train_data):
+
+
+                b_input_ids = batch[0].to(device)
+                b_input_mask = batch[1].to(device)
+                b_labels = batch[2].to(device)
+
+                # this is resetting the model parameters for each batch of training
+                # we want to continuously update model parameters
+                # model.zero_grad()
+                
+                optimizer.zero_grad()
+                
+                output = model(b_input_ids, b_input_mask)
+                train_pred_probs = torch.flatten(output)
  
- 
- 
- 
- 
- 
- 
- 
+                batch_loss = criterion(train_pred_probs.float(), b_labels)
+
+                total_loss_train += batch_loss.item()
+
+                acc = (train_pred_probs.round() == b_labels).sum().item()
+                total_acc_train += acc
+                 
+                batch_loss.backward() 
+                optimizer.step()
+            
+            total_acc_val = 0
+            total_loss_val = 0
+
+            model.eval()
+
+            with torch.no_grad():
+                for batch in val_data:
+                
+                    b_input_ids = batch[0].to(device)
+                    b_input_mask = batch[1].to(device)
+                    b_labels = batch[2].to(device)
+
+
+                    output = model(b_input_ids,b_input_mask)
+                    val_pred_probs = torch.flatten(output)
+
+                    batch_loss = criterion(val_pred_probs.float(), b_labels)
+                    total_loss_val += batch_loss.item()
+                    acc = (val_pred_probs.round() == b_labels).sum().item()
+                    total_acc_val += acc
+            
+            print(
+                f'Epochs: {epoch_num + 1} | Train Loss: {total_loss_train / trainlen : .3f} \
+                | Train Accuracy: {total_acc_train / trainlen : .3f} \
+                | {total_acc_train} and {trainlen}\
+                | Val Loss: {total_loss_val / vallen: .3f} \
+                | Val Accuracy: {total_acc_val / vallen: .3f}\
+                | {total_acc_val} and {vallen}'
+                )
+                  
+EPOCHS = 4
+model = BertClassifier()
+LR = 2e-5
+              
+train(model,train_dataloader, validation_dataloader, LR, EPOCHS, train_size, val_size)
+
+torch.save(model.state_dict(), 'Path to the folder where you want to save the weights')
  
  ```
+ 
+ # Testing
+ 
+ 
+ 
+ 
  
