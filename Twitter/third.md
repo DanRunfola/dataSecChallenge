@@ -492,8 +492,6 @@ class BertClassifier(nn.Module):
 model.load_state_dict(torch.load('Path to the file where you saved the weights'))
         
 #Predicting
-
-
 use_cuda = torch.cuda.is_available()
 device = torch.device("cuda" if use_cuda else "cpu")
 
@@ -516,7 +514,16 @@ with torch.no_grad():
 
         output = model(b_input_ids,b_input_mask)
         test_pred_probs = torch.flatten(output)
-        test_pred_probs.round()
-        out_labels=test_pred_probs.detach().cpu().numpy()
+        labels=test_pred_probs.round()
+        out_labels=labels.detach().cpu().numpy()
         predictions.append(out_labels)
+
+#Changing the dimensions of list and converting to dataframe
+pred_list = list(chain.from_iterable(predictions))
+pred_df=pd.DataFrame(pred_list, columns =['Predicted Labels'])
+
+#converting dataframe to csv
+pred_df.to_csv("Test_labels.csv")
+ ```
  
+ Once you have the CSV file submit it to the kaggle. The instructions were given on [kaggle guide](https://github.com/DanRunfola/dataSecChallenge/blob/main/Twitter/fifth.md).
