@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Introduction](Introduction.md)
 * [Past Competitions](pastcompletions.md)
 
 ## Twitter
