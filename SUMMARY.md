@@ -1,5 +1,6 @@
 # Table of contents
 
+* [DataSecChallenge @ W\&M](README.md)
 * [Introduction](Introduction.md)
 * [Past Competitions](pastcompletions.md)
 
