@@ -4,9 +4,9 @@
 * [Past Competitions](pastcompletions.md)
 
 ## Twitter
-* [Introduction](Twitter/first.md)
-* [DataBase](Twitter/second.md)
-* [Implementation](Twitter/third.md)
-* [Advanced](Twitter/fourth.md)
-* [Kaggle](Twitter/fifth.md)
-* [Timeline](Twitter/sixth.md)
+* [Introduction](Twitter/Introduction.md)
+* [DataSet](Twitter/DataSet.md)
+* [Implementation](Twitter/Implementation.md)
+* [Advanced](Twitter/Advanced.md)
+* [Kaggle](Twitter/Kaggle.md)
+* [Timeline](Twitter/Timeline.md)
