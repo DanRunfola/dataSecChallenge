@@ -359,8 +359,8 @@ from torch.utils.data import TensorDataset, random_split
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 
 #Loading the data
-Data=pd.read_csv("Give path to the csv test dataset file you downloaded")
-Data=Data.iloc[:,1:](Keeping only tweet)
+TestData=pd.read_csv("Give path to the csv test dataset file you downloaded")
+Data=TestData.iloc[:,1:](Keeping only tweet)
 Data
 
 #Checking and removing null values
@@ -518,12 +518,17 @@ with torch.no_grad():
         out_labels=labels.detach().cpu().numpy()
         predictions.append(out_labels)
 
-#Changing the dimensions of list and converting to dataframe
+#Changing the dimensions of list 
 pred_list = list(chain.from_iterable(predictions))
-pred_df=pd.DataFrame(pred_list, columns =['Predicted Labels'])
+
+#Adding the list to dataframe as a column
+TestData["Predicted Labels"]= pred_list
+
+#converting the dataframe into submission format
+TestData.drop(['full_text'], axis=1)
 
 #converting dataframe to csv
-pred_df.to_csv("Test_labels.csv")
+TestData.to_csv("Predictions.csv")
  ```
  
  Once you have the CSV file submit it to the kaggle. The instructions were given on [kaggle guide](https://github.com/DanRunfola/dataSecChallenge/blob/main/Twitter/fifth.md).
