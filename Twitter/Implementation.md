@@ -531,4 +531,4 @@ TestData.drop(['full_text'], axis=1)
 TestData.to_csv("Predictions.csv")
  ```
  
- Once you have the CSV file submit it to the kaggle. The instructions were given on [kaggle guide](https://github.com/DanRunfola/dataSecChallenge/blob/main/Twitter/fifth.md).
+ Once you have the CSV file submit it to the kaggle. The instructions were given on [kaggle guide](https://github.com/DanRunfola/dataSecChallenge/blob/main/Twitter/Kaggle.md).
