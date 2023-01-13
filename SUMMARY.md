@@ -9,5 +9,5 @@
 * [DataSet](Twitter/DataSet.md)
 * [Implementation](Twitter/Implementation.md)
 * [Advanced](Twitter/Advanced.md)
-* [Submit Predictions](Twitter/Kaggle.md)
+* [Submit Predictions](Twitter/submitpredictions.md)
 * [Timeline](Twitter/Timeline.md)
