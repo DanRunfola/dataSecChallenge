@@ -1,7 +1,7 @@
  # How to download a Dataset
  
-In the start of the event every one will be given access to one private github repository which contains data. To download data log into [Github](). Once you've logged in, navigate to the repositories and select the "Twitter"-named repository there. After clicking, you'll see an interface similar to the one below.
+To download datasets visit [Kaggle Competition](http://www.kaggle.com/competitions/wmcci). Once you've visited the site, navigate to the Data and scroll down a bit where you will see "Download All" button which will be on down right side of the page . You'll see an interface similar to the one below.
 
 ![](https://user-images.githubusercontent.com/51315286/211608869-2267959c-a4e1-4ccd-b493-f1c740918daf.png)
  
-First click on code and the click on download.zip which will download the zip folder on your local system. After downloading a zip file, unpack it and save it somewhere you can access it later.
+When you click Download All it will ask you to sign in, please sign in. If you guys not registered over Kaggle please do it over here [Kaggle Registration](https://www.kaggle.com/). Once you signin you would be able download the data.
