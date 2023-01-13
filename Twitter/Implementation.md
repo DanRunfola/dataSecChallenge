@@ -360,7 +360,7 @@ from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 
 #Loading the data
 TestData=pd.read_csv("Give path to the csv test dataset file you downloaded")
-Data=TestData.iloc[:,1:](Keeping only tweet)
+Data=TestData.iloc[:,1:](Keeping only tweets)
 Data
 
 #Checking and removing null values
