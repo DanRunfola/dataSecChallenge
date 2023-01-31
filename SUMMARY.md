@@ -2,7 +2,6 @@
 
 * [DataSecChallenge @ W\&M](README.md)
 * [Introduction](Introduction.md)
-* [Past Competitions](pastcompletions.md)
 
 ## Twitter
 * [Introduction](Twitter/Introduction.md)
@@ -10,4 +9,3 @@
 * [Implementation](Twitter/Implementation.md)
 * [Advanced](Twitter/Advanced.md)
 * [Submit Predictions](Twitter/submitpredictions.md)
-* [Timeline](Twitter/Timeline.md)
