@@ -1,10 +1,10 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [Prizes](PRIZES.md)
 
 ## Competition Materials
-* [Introduction](Twitter/Introduction.md)
-* [DataSet](Twitter/DataSet.md)
-* [Implementation](Twitter/Implementation.md)
-* [Advanced](Twitter/Advanced.md)
+### Phase 1
+* [Download Data](Twitter/DataSet.md)
+* [Example Implementation](Twitter/Implementation.md)
 * [Submit Predictions](Twitter/submitpredictions.md)
