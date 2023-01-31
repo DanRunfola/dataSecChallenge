@@ -6,9 +6,9 @@ This year we'll be hosting a two-part contest.  In part 1, you'll be provided wi
 
 In part 2, we will be designing a second model on the basis of manually-identified mis/disinformation examples from Russian sources.  Led by Dr. Anthony Stefanidis, this will be an opportunity to work on a research paper that explores the capability of machine learning to identify such cases.  You will be working closely with us to both collect data and produce models.  In April, we'll hold a second round of competition based on the labeled dataset you produce.
 
-**Timeline**
+**Timeline**\
 Feb 2nd, 2023: Kickoff\
 Feb 2nd - March 5, 2023: Disambiguition of sources on Twitter based on content of tweets\
 March 5 - March 31, 2023: Labeling of dis/misinformation\
 April 1 - April 30, 2023: Modeling of dis/misinformation labeled dataset\
-First week of May: Final Presentations\
+First week of May: Final Presentations
