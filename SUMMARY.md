@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Prizes](PRIZES.md)
+* [Office Hours](OFFICE.md)
 
 ## Competition Materials
 ### Phase 1
