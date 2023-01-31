@@ -1,7 +1,7 @@
 ---
 coverY: 0
 ---
-# Welcome to the **geoLab Twitter Dis/Misinformation & Machine Learning Competition!**\
+# Welcome to the **geoLab Twitter Dis/Misinformation & Machine Learning Competition!**
 \
 The geoLab/CCI twitter dis/misinformation competition is part of an *experiential learning* project designed to give participants real-world experience in data security.  We're focused on exploring how treating dis/misinformation as data poisoning could potentially help us identify intentionally misleading tweets this year.
 
