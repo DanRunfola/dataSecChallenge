@@ -5,5 +5,5 @@ Individuals in the project can join our regular office hours at any time for tec
 * **April 1st - April 30:Monday - Friday, 8AM - 11AM**
 
 
-**Join Zoom Meeting:** Click Here.[https://cwm.zoom.us/j/3682336663]
+**Join Zoom Meeting:** [Click Here](https://cwm.zoom.us/j/3682336663) or copy & paste in browser [https://cwm.zoom.us/j/3682336663]
 
